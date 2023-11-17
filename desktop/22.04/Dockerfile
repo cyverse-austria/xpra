@@ -75,6 +75,27 @@ RUN cd /tmp && \
     dpkg -i --force-depends virtualgl_3.1_amd64.deb && \
     apt -f install -y 
 
+# Install Wine
+RUN dpkg --add-architecture i386 && \
+	apt-get update && \
+	apt-get install -y wget gnupg software-properties-common unzip zenity && \
+	wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add - && \
+	add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' && \
+	wget -nv https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/Release.key -O Release.key && \
+	apt-key add - < Release.key && \
+	apt-add-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_22.04/ ./' && \
+	apt-get update && \
+	apt install -y --install-recommends winehq-stable && \
+	wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && \
+	chmod +x winetricks 
+
+ENV WINEARCH win64
+
+# Download and install Notepad++
+RUN wget https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.3.1/npp.8.3.1.Installer.exe \
+    && wine npp.8.3.1.Installer.exe /S \
+    && rm npp.8.3.1.Installer.exe
+
 # Create XAuthority configurations
 RUN export XAUTHORITY=~/.Xauthority && \
     sed -i -e "s/console/anybody/" /etc/X11/Xwrapper.config && \
