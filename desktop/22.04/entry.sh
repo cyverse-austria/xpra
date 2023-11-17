@@ -6,4 +6,4 @@ wget https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8
     && wine npp.8.3.1.Installer.exe /S \
     && rm npp.8.3.1.Installer.exe
 
-exec xpra start --bind-tcp=0.0.0.0:9876 --html=on --start-child="wine /root/.wine/drive_c/Program\ Files/Notepad++/notepad++.exe" --exit-with-children=no --daemon=no --xvfb="/usr/bin/Xvfb +extension Composite -screen 0 1920x1080x24+32 -nolisten tcp -noreset" --file-transfer=on --pulseaudio=no --notifications=no --bell=no :100
+exec xpra start --bind-tcp=0.0.0.0:9876 --html=on --start-child="wine" --start-child="wine /root/.wine/drive_c/Program\ Files/Notepad++/notepad++.exe" --exit-with-children=no --daemon=no --xvfb="/usr/bin/Xvfb +extension Composite -screen 0 1920x1080x24+32 -nolisten tcp -noreset" --file-transfer=on --pulseaudio=no --notifications=no --bell=no :100

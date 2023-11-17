@@ -96,6 +96,12 @@ RUN wget https://github.com/notepad-plus-plus/notepad-plus-plus/releases/downloa
     && wine npp.8.3.1.Installer.exe /S \
     && rm npp.8.3.1.Installer.exe
 
+# TODO: 
+# add Notepad++.desktop
+# location: ~/.local/share/applications/
+# OR /root/.local/share/applications/wine/Programs
+# chmod +x Notepad++.desktop
+
 # Create XAuthority configurations
 RUN export XAUTHORITY=~/.Xauthority && \
     sed -i -e "s/console/anybody/" /etc/X11/Xwrapper.config && \

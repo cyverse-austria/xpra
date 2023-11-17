@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Notepad++
+Exec=wine "/path/to/Notepad++/notepad++.exe"
+Icon=/path/to/Notepad++/notepad++.exe
+Type=Application
+Categories=Wine;
