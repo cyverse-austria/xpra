@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Notepad++
-Exec=wine "/path/to/Notepad++/notepad++.exe"
-Icon=/path/to/Notepad++/notepad++.exe
+Exec=env WINEPREFIX="/root/.wine/" wine start /unix  "/root/.wine/drive_c/Program Files/Notepad++/notepad++.exe"
+Icon=4D89_notepad++.0
 Type=Application
 Categories=Wine;
+StartupNotify=true

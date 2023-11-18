@@ -96,6 +96,9 @@ RUN wget https://github.com/notepad-plus-plus/notepad-plus-plus/releases/downloa
     && wine npp.8.3.1.Installer.exe /S \
     && rm npp.8.3.1.Installer.exe
 
+COPY Notepad++.desktop /bin/
+RUN chmod +x /bin/Notepad++.desktop
+
 # TODO: 
 # add Notepad++.desktop
 # location: ~/.local/share/applications/

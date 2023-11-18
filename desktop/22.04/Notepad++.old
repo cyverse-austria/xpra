@@ -1,0 +1,8 @@
+
+Name=Notepad++
+Exec=env WINEPREFIX="/root/.wine" wine C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start\\ Menu\\\\Programs\\\\Notepad++.lnk
+Type=Application
+StartupNotify=true
+Path=/root/.wine/dosdevices/c:/Program Files (x86)/Notepad++
+Icon=4D89_notepad++.0
+StartupWMClass=notepad++.exe
